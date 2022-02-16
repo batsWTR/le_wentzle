@@ -17,7 +17,7 @@ class Wentzle{
 
 
     nouvellePartie(mot,content, nbEssai=6){
-        this.motAtrouver = mot;
+        this.motAtrouver = mot.toUpperCase();
         this.content = content;
         this.nbEssais = nbEssai;
 
@@ -68,7 +68,7 @@ class Wentzle{
         
         if(this.nbEssaisRestant == 0){return};
 
-        this.motEnCour += lettre;
+        this.motEnCour += lettre.toUpperCase();
         let allChars = this.getCurrentLineChild();
         allChars[this.nbCaract - this.nbCaractRestant].textContent = lettre.toUpperCase();
 

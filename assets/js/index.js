@@ -6,17 +6,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let selectEssai = document.getElementById('nbChances');
 
     let tentatives = selectEssai.value;
-    console.log('tentatives:', tentatives);
-    
     
     
     let jeu = new Wentzle();
     
-    jeu.nouvellePartie('marche',plateau, tentatives);
+    jeu.nouvellePartie('marcher',plateau, tentatives);
     
     
     
-    //--------------------------- listeners
+    //--------------------------- listeners ----------------------
     
     startButton.addEventListener('click', ()=>{
         let tentatives = selectEssai.value;
