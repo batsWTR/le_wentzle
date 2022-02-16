@@ -6,9 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="./assets/js/wentzle.js" defer></script>
+    <script src="./assets/js/index.js" defer></script>
+    <link rel="stylesheet" href="./assets/index.css">
     <title>Le Wentzle</title>
 </head>
 <body>
-    
+    <h1>Le Wentzle</h1>
+    <div class="jeu">
+        <div>
+            <div>
+                <label for="nbChances">Nombre de tentatives</label>
+                <select name="" id="nbChances">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6" selected>6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div>
+                <label for="nbLettres">Nombre de lettre</label>
+                <select name="" id="nbLettres">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6" selected>6</option>
+                </select>
+            </div>
+            <button type="button" id="startButton">Commencer</button>
+        </div>
+        <div class="content" id="content">
+
+        </div>
+    </div>
 </body>
 </html>

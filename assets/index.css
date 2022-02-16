@@ -1,0 +1,47 @@
+
+
+
+h1{
+    text-align: center;
+}
+
+.jeu{
+    margin: 0 auto;
+    width: 60%;
+    max-width: 1200px;
+}
+
+.content{
+    border: 1px solid black;
+}
+
+.ligne{
+    border: 1px solid red;
+    height: 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char{
+    color: black;
+    display: inline-block;
+    border: 1px solid green;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+}
+
+.orange{
+    background-color: orange;
+}
