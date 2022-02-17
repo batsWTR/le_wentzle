@@ -13,10 +13,16 @@ class Wentzle{
         this.nbEssaisRestant = 0;
         this.nbCaract = 0;
         this.partieStart = false;
+        this.gagne = false;
+        this.perdu = false;
     }
 
 
     nouvellePartie(mot,content, nbEssai=6){
+        this.partieStart = false;
+        this.gagne = false;
+        this.perdu = false;
+        
         this.motAtrouver = mot.toUpperCase();
         this.content = content;
         this.nbEssais = nbEssai;
@@ -58,6 +64,10 @@ class Wentzle{
                 }
             }
         });
+
+        //--------------- test fin de partie ------------
+        if(this.motAtrouver != this.motEnCour && this.nbEssaisRestant == 1){this.perdu = true;};
+        if(this.motAtrouver == this.motEnCour){this.gagne = true;};
   
         this.partieStart = true;
     }
@@ -84,6 +94,10 @@ class Wentzle{
             this.nbCaractRestant = this.nbCaract;
             
         };
+
+        if(this.gagne){this.gagnePerdu(true);};
+        if(this.perdu){this.gagnePerdu(false);};
+
     }
 
     creationPlateau(){
@@ -109,6 +123,16 @@ class Wentzle{
     getCurrentLineChild(){
         let allLignes = this.content.children;
         return allLignes[this.nbEssais - this.nbEssaisRestant].children;
+    }
+
+    gagnePerdu(result){
+
+        this.partieStart =false;
+        if(result){
+            console.log('GAGNE');
+        }else{
+            console.log('PERDU');
+        }
     }
     
     //entrer un mot, appuie sur entrer
