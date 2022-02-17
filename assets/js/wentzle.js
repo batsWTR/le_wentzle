@@ -17,12 +17,11 @@ class Wentzle{
         this.perdu = false;
     }
 
-
     nouvellePartie(mot,content, nbEssai=6){
         this.partieStart = false;
         this.gagne = false;
         this.perdu = false;
-        
+
         this.motAtrouver = mot.toUpperCase();
         this.content = content;
         this.nbEssais = nbEssai;
@@ -38,18 +37,18 @@ class Wentzle{
         console.log(`Creation de la grille de  ${this.nbCaract}x${this.nbEssais}`);
         console.log(`Il vous reste ${this.nbEssaisRestant} essais`);
 
-        this.creationPlateau();
+        this.#creationPlateau();
 
         this.partieStart = true;
     }
     
-    testMot(){
+    #testMot(){
         this.partieStart = false;
         console.log('---test du mot-----');
 
         let motAtrouver = [...this.motAtrouver];
 
-        let allchars = this.getCurrentLineChild();
+        let allchars = this.#getCurrentLineChild();
 
         this.motAtrouver.split('').map((el,id,arr)=>{
             if(el == this.motEnCour[id]){
@@ -79,7 +78,7 @@ class Wentzle{
         if(this.nbEssaisRestant == 0){return};
 
         this.motEnCour += lettre.toUpperCase();
-        let allChars = this.getCurrentLineChild();
+        let allChars = this.#getCurrentLineChild();
         allChars[this.nbCaract - this.nbCaractRestant].textContent = lettre.toUpperCase();
 
         console.log(this.motEnCour);
@@ -87,7 +86,7 @@ class Wentzle{
 
         if(this.nbCaractRestant == 0){
 
-            this.testMot();
+            this.#testMot();
 
             this.motEnCour = '';
             this.nbEssaisRestant--; 
@@ -95,12 +94,12 @@ class Wentzle{
             
         };
 
-        if(this.gagne){this.gagnePerdu(true);};
-        if(this.perdu){this.gagnePerdu(false);};
+        if(this.gagne){this.#gagnePerdu(true);};
+        if(this.perdu){this.#gagnePerdu(false);};
 
     }
 
-    creationPlateau(){
+    #creationPlateau(){
         // RAZ elemnts du DOM
         while(this.content.firstChild){
             this.content.removeChild(this.content.lastChild);
@@ -120,26 +119,22 @@ class Wentzle{
         }
     }
 
-    getCurrentLineChild(){
+    #getCurrentLineChild(){
         let allLignes = this.content.children;
         return allLignes[this.nbEssais - this.nbEssaisRestant].children;
     }
 
-    gagnePerdu(result){
+    #gagnePerdu(result){
 
         this.partieStart =false;
         if(result){
             console.log('GAGNE');
         }else{
             console.log('PERDU');
+            console.log(`Le mot etait: ${this.motAtrouver}`);
         }
     }
     
-    //entrer un mot, appuie sur entrer
-    // tester le mot si ok retourne true
-    // sinon si nb essai atteint retourne false
-    // sinon regarde si des letrres correspondent
-    // afficher les lettres a la bonne place ds le mot suivant
 }
 
 
