@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 body{
     background: linear-gradient(to right bottom, rgb(3, 11, 37), rgb(5, 26, 95));
     color: white;
@@ -12,17 +14,23 @@ h1{
     margin: 0 auto;
     width: 60%;
     max-width: 1200px;
+    height: 100vh;
 
 
 }
 
 .settings{
-    border: 2px solid red;
 }
 
+.selects{
+    display: flex;
+    justify-content: space-between;
+}
 button{
-    width: 100%;
+    width: 80%;
+    display: block;
     padding: 12px 0;
+    margin: 10px auto;
     background-color: rgb(17, 202, 17);
     color: white;
 }
@@ -30,6 +38,7 @@ button{
 .content{
     border: 8px solid rgb(197, 23, 188);
     border-radius: 15px;
+
 }
 
 .ligne{

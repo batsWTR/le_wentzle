@@ -81,7 +81,7 @@ class Wentzle{
         let allChars = this.#getCurrentLineChild();
         allChars[this.nbCaract - this.nbCaractRestant].textContent = lettre.toUpperCase();
 
-        console.log(this.motEnCour);
+
         this.nbCaractRestant--;
 
         if(this.nbCaractRestant == 0){
@@ -103,7 +103,6 @@ class Wentzle{
         // RAZ elemnts du DOM
         while(this.content.firstChild){
             this.content.removeChild(this.content.lastChild);
-            console.log('delete');
         }
 
         for(let i = 0; i<this.nbEssais; i++){
