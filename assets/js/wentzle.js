@@ -37,10 +37,14 @@ class Wentzle{
         console.log(`Creation de la grille de  ${this.nbCaract}x${this.nbEssais}`);
         console.log(`Il vous reste ${this.nbEssaisRestant} essais`);
 
-        this.#creationPlateau();
+        this.annonce('Debut de la partie');
 
+
+        this.#creationPlateau();
+      
         this.partieStart = true;
     }
+    
     
     #testMot(){
         this.partieStart = false;
@@ -128,12 +132,31 @@ class Wentzle{
         this.partieStart =false;
         if(result){
             console.log('GAGNE');
+            this.annonce('GAGNE');
         }else{
             console.log('PERDU');
             console.log(`Le mot etait: ${this.motAtrouver}`);
+            this.annonce(`PERDU, le mot etait: ${this.motAtrouver}`);
         }
     }
-    
+    annonce(msg){
+        let div = document.createElement('div');
+        div.textContent = msg;
+        div.style.position = 'absolute';
+        div.style.top = '50%';
+        div.style.left = '50%';
+        div.style.transform = 'translateX(-50%) translateY(-50%)';
+        div.style.width = '60%';
+        div.style.height = '80px';
+        div.style.zIndex = 1;
+        div.style.backgroundColor = 'green';
+        document.body.append(div);
+
+
+        setTimeout(()=>{
+            document.body.removeChild(div);
+        },3000);
+    }
 }
 
 
