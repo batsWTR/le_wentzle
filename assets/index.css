@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background: linear-gradient(to right bottom, rgb(3, 11, 37), rgb(5, 26, 95));
+    background: linear-gradient(to right bottom, rgba(3, 11, 37,.9), rgba(5, 26, 95,.7)), url('./fond.jpg');
     color: white;
 }
 
