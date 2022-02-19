@@ -36,7 +36,7 @@ button{
 }
 
 .content{
-    border: 8px solid rgb(197, 23, 188);
+    border: 8px solid  rgb(2, 8, 26);
     border-radius: 15px;
 
 }
@@ -57,7 +57,7 @@ button{
     text-align: center;
     font-size: 40px;
     
-    box-shadow: 0 4px 6px inset;
+    box-shadow: 0 -4px 6px inset;
 }
 
 .green{

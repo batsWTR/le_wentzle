@@ -155,6 +155,9 @@ class Wentzle{
         div.style.transform = 'translateX(-50%) translateY(-50%)';
         div.style.width = '60%';
         div.style.height = '80px';
+        div.style.borderRadius = '15px';
+        div.style.boxShadow = '4px 6px 12px black';
+        div.style.textAlign = 'center';
         div.style.zIndex = 1;
         div.style.backgroundColor = 'green';
         document.body.append(div);
