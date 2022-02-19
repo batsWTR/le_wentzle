@@ -31,6 +31,7 @@ class Wentzle{
         this.nbCaractRestant = this.nbCaract;
 
         this.motEnCour = '';
+        this.motAcompleter = new Array(this.motAtrouver.length);
 
 
         console.log('---Nouvelle partie---');
@@ -58,6 +59,7 @@ class Wentzle{
             if(el == this.motEnCour[id]){
                 allchars[id].classList.add('green');
                 motAtrouver[id] = "";
+                this.motAcompleter[id] = el;
             }else{
                 if(motAtrouver.join('').search(this.motEnCour[id]) != -1){
                     allchars[id].classList.add('orange');
@@ -67,6 +69,9 @@ class Wentzle{
                 }
             }
         });
+
+        // affiche les lettres deja trouve sur la ligne suivante
+        this.#afficheDejaTrouve();
 
         //--------------- test fin de partie ------------
         if(this.motAtrouver != this.motEnCour && this.nbEssaisRestant == 1){this.perdu = true;};
@@ -122,11 +127,13 @@ class Wentzle{
         }
     }
 
+    // fn interne retourne les span de ttes les lettres de la ligne en cours
     #getCurrentLineChild(){
         let allLignes = this.content.children;
         return allLignes[this.nbEssais - this.nbEssaisRestant].children;
     }
 
+    //  affichage modal gagne ou perdu
     #gagnePerdu(result){
 
         this.partieStart =false;
@@ -156,6 +163,17 @@ class Wentzle{
         setTimeout(()=>{
             document.body.removeChild(div);
         },3000);
+    }
+    #afficheDejaTrouve(){
+        console.log(this.motAcompleter);
+        let lignes = this.content.children;
+        if(lignes[this.nbEssais - this.nbEssaisRestant + 1] != undefined){
+            let child = lignes[this.nbEssais - this.nbEssaisRestant + 1].children;
+            this.motAcompleter.map((el,id)=>{
+                child[id].textContent = el;
+            });
+        }
+        
     }
 }
 
