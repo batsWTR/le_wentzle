@@ -125,6 +125,12 @@ class Wentzle{
 
             this.content.appendChild(ligne);
         }
+        //smartphones atester
+        let keyboard = document.createElement('input');
+        keyboard.setAttribute('type','text');
+        keyboard.setAttribute('hidden','');
+        keyboard.focus();
+        this.content.appendChild(keyboard);
     }
 
     // fn interne retourne les span de ttes les lettres de la ligne en cours
@@ -158,6 +164,7 @@ class Wentzle{
         div.style.borderRadius = '15px';
         div.style.boxShadow = '4px 6px 12px black';
         div.style.textAlign = 'center';
+        div.style.lineHeight = '80px';
         div.style.zIndex = 1;
         div.style.backgroundColor = 'green';
         document.body.append(div);
