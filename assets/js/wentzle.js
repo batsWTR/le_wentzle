@@ -174,6 +174,7 @@ class Wentzle{
             document.body.removeChild(div);
         },3000);
     }
+    // affiche les lettres deja trouve sur la ligne suivante
     #afficheDejaTrouve(){
         console.log(this.motAcompleter);
         let lignes = this.content.children;
@@ -184,6 +185,13 @@ class Wentzle{
             });
         }
         
+    }
+    aide(){
+        // 1 seul fois par partie
+        // motAcompleter
+        // indice vide ds un tableau
+        // tire au sort un indice du tableau qui contient indice de lettre
+        // ajoute la lettre dans mot a completer
     }
 }
 
