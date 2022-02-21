@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     
     
     let jeu = new Wentzle();
-    
-    jeu.nouvellePartie('marcher',plateau, tentatives);
+    let id = Math.floor(Math.random() * motsArgot[6].length);
+
+    jeu.nouvellePartie(motsArgot[6][id],plateau, tentatives);
     
     
     

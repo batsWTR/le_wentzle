@@ -1,0 +1,64 @@
+
+
+
+const motsArgot = {
+    5:[
+        'bezef',
+        'bahut',
+        'beauf',
+        'berge',
+        'bigot',
+        'boite',
+        'bombe',
+        'bonne',
+        'chtar',
+        'clebs'
+    ],
+    6:[
+        'flouse',
+        'bordel',
+        'boudin',
+        'jargon',
+        'verlan',
+        'apache',
+        'bacher',
+        'balais',
+        'baston',
+        'bastos',
+        'batard',
+        'bedave',
+        'biclou',
+        'biture',
+        'burnes',
+        'bobard',
+        'cageot',
+        'caguer',
+        'calter',
+        'canner',
+        'capter',
+        'carton',
+        'chelou',
+        'chiper',
+        'chnouf',
+        'clacos'
+    ],
+    7:[
+        'daronne',
+        'bouffer',
+        'bouffon',
+        'bouyave',
+        'braquer',
+        'abouler',
+        'bagnole',
+        'balance',
+        'baliser',
+        'bigleux',
+        'biroute',
+        'bigniou',
+        'cailler',
+        'carotte',
+        'casquer',
+        'chicots',
+        'cinoche'
+    ]
+};
