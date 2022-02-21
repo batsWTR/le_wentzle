@@ -60,6 +60,8 @@ button{
     box-shadow: 0 -4px 6px inset;
 }
 
+/* classes pour JS   */
+
 .green{
     background-color: green;
 }
@@ -70,4 +72,18 @@ button{
 
 .orange{
     background-color: orange;
+}
+
+.annonce{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 60%;
+    height: 80px;
+    border-radius: 15px;
+    box-shadow: 4px 6px 12px black;
+    text-align: center;
+    line-height: 80px;
+    z-index: 1;
 }

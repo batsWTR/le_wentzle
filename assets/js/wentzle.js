@@ -114,6 +114,7 @@ class Wentzle{
             this.content.removeChild(this.content.lastChild);
         }
 
+        // creation case du plateau
         for(let i = 0; i<this.nbEssais; i++){
             let ligne = document.createElement('div');
             ligne.classList.add('ligne');
@@ -125,12 +126,13 @@ class Wentzle{
 
             this.content.appendChild(ligne);
         }
+
         //smartphones atester
         let keyboard = document.createElement('input');
         keyboard.setAttribute('type','text');
         keyboard.setAttribute('hidden','');
         keyboard.focus();
-        this.content.appendChild(keyboard);
+        document.body.appendChild(keyboard);
     }
 
     // fn interne retourne les span de ttes les lettres de la ligne en cours
@@ -149,24 +151,14 @@ class Wentzle{
         }else{
             console.log('PERDU');
             console.log(`Le mot etait: ${this.motAtrouver}`);
-            this.annonce(`PERDU, le mot etait: ${this.motAtrouver}`);
+            this.annonce(`PERDU, le mot etait: ${this.motAtrouver}`, 'red');
         }
     }
-    annonce(msg){
+    annonce(msg, color='green'){
         let div = document.createElement('div');
         div.textContent = msg;
-        div.style.position = 'absolute';
-        div.style.top = '50%';
-        div.style.left = '50%';
-        div.style.transform = 'translateX(-50%) translateY(-50%)';
-        div.style.width = '60%';
-        div.style.height = '80px';
-        div.style.borderRadius = '15px';
-        div.style.boxShadow = '4px 6px 12px black';
-        div.style.textAlign = 'center';
-        div.style.lineHeight = '80px';
-        div.style.zIndex = 1;
-        div.style.backgroundColor = 'green';
+        div.classList.add('annonce');
+        div.classList.add(color);
         document.body.append(div);
 
 
