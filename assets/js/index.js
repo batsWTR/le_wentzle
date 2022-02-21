@@ -10,17 +10,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
     
     
     let jeu = new Wentzle();
+    
     let id = Math.floor(Math.random() * motsArgot[6].length);
 
     jeu.nouvellePartie(motsArgot[6][id][0],plateau, tentatives);
-    
     
     
     //--------------------------- listeners ----------------------
     
     startButton.addEventListener('click', ()=>{
         let tentatives = selectEssai.value;
-        jeu.nouvellePartie('daronne',plateau,tentatives);
+        let id = Math.floor(Math.random() * motsArgot[6].length);
+
+        jeu.nouvellePartie(motsArgot[6][id][0],plateau, tentatives);
     });
     
     document.addEventListener('keypress', (ev)=>{
