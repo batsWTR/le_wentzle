@@ -35,6 +35,11 @@ button{
     color: white;
 }
 
+button:disabled{
+    background-color: rgb(82, 112, 82);
+
+}
+
 .content{
     border: 8px solid  rgb(2, 8, 26);
     border-radius: 15px;

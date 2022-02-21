@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     let plateau = document.getElementById('content');
     let startButton = document.getElementById('startButton');
+    let helpButton = document.getElementById('aide');
     let selectEssai = document.getElementById('nbChances');
 
     let tentatives = selectEssai.value;
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     
     startButton.addEventListener('click', ()=>{
         let tentatives = selectEssai.value;
-        jeu.nouvellePartie('evader',plateau,tentatives);
+        jeu.nouvellePartie('daronne',plateau,tentatives);
     });
     
     document.addEventListener('keypress', (ev)=>{
@@ -26,6 +27,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
         if(ev.key.length == 1 && ev.key.search('[a-zA-Z]{1}') == 0){
             jeu.setNouvLettre(ev.key);
         }
+    });
+
+    helpButton.addEventListener('click', ()=>{
+        jeu.aide();
     });
 })
 

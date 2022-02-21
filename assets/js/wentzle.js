@@ -15,12 +15,15 @@ class Wentzle{
         this.partieStart = false;
         this.gagne = false;
         this.perdu = false;
+        this.help = true;
     }
 
     nouvellePartie(mot,content, nbEssai=6){
         this.partieStart = false;
         this.gagne = false;
         this.perdu = false;
+        this.help = true;
+
 
         this.motAtrouver = mot.toUpperCase();
         this.content = content;
@@ -31,7 +34,7 @@ class Wentzle{
         this.nbCaractRestant = this.nbCaract;
 
         this.motEnCour = '';
-        this.motAcompleter = new Array(this.motAtrouver.length);
+        this.motAcompleter = new Array(this.motAtrouver.length).fill('');
 
 
         console.log('---Nouvelle partie---');
@@ -70,12 +73,17 @@ class Wentzle{
             }
         });
 
-        // affiche les lettres deja trouve sur la ligne suivante
-        this.#afficheDejaTrouve();
 
         //--------------- test fin de partie ------------
         if(this.motAtrouver != this.motEnCour && this.nbEssaisRestant == 1){this.perdu = true;};
         if(this.motAtrouver == this.motEnCour){this.gagne = true;};
+
+        // affiche les lettres deja trouve sur la ligne suivante
+        this.#afficheDejaTrouve();
+
+        this.#setHelpButton();
+
+        
   
         this.partieStart = true;
     }
@@ -85,6 +93,8 @@ class Wentzle{
 
         
         if(this.nbEssaisRestant == 0){return};
+
+        this.#setHelpButton(false);
 
         this.motEnCour += lettre.toUpperCase();
         let allChars = this.#getCurrentLineChild();
@@ -167,11 +177,17 @@ class Wentzle{
         },3000);
     }
     // affiche les lettres deja trouve sur la ligne suivante
-    #afficheDejaTrouve(){
+    #afficheDejaTrouve(ligne = 1){
+
+        if(this.gagne || this.perdu){
+            console.log('');
+            return;
+        };
+
         console.log(this.motAcompleter);
         let lignes = this.content.children;
-        if(lignes[this.nbEssais - this.nbEssaisRestant + 1] != undefined){
-            let child = lignes[this.nbEssais - this.nbEssaisRestant + 1].children;
+        if(lignes[this.nbEssais - this.nbEssaisRestant + ligne] != undefined){
+            let child = lignes[this.nbEssais - this.nbEssaisRestant + ligne].children;
             this.motAcompleter.map((el,id)=>{
                 child[id].textContent = el;
             });
@@ -179,11 +195,41 @@ class Wentzle{
         
     }
     aide(){
+        this.help = false;
+
+        console.log('A l\'aide');
+
         // 1 seul fois par partie
-        // motAcompleter
-        // indice vide ds un tableau
+
+        // tableau des cases vides
+        let vides = [];
+        this.motAcompleter.map((el,id)=>{
+            if(el == ''){
+                vides.push(id);
+            }
+        });
+
         // tire au sort un indice du tableau qui contient indice de lettre
+        let randomLetter = Math.floor(Math.random() * vides.length);
+        let indiceLetter = vides[randomLetter];
+        console.log('lettre: '+ this.motAtrouver[indiceLetter]);
+
         // ajoute la lettre dans mot a completer
+        this.motAcompleter[indiceLetter] = this.motAtrouver[indiceLetter];
+        this.#afficheDejaTrouve(0);
+
+        this.#setHelpButton(false);
+    }
+
+    #setHelpButton(visible = true){
+        let button = document.getElementById('aide');
+
+        if(this.help){
+            visible ? button.removeAttribute('disabled') : button.setAttribute('disabled', '');
+        }else{
+            button.setAttribute('disabled', '');
+        }
+        
     }
 }
 
