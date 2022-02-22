@@ -18,11 +18,12 @@ class Wentzle{
         this.help = true;
     }
 
-    nouvellePartie(mot,content, nbEssai=6){
+    nouvellePartie(mot,content, nbEssai=6, definition=''){
         this.partieStart = false;
         this.gagne = false;
         this.perdu = false;
         this.help = true;
+        this.definition = definition;
 
 
         this.motAtrouver = mot.toUpperCase();
@@ -40,11 +41,15 @@ class Wentzle{
         console.log('---Nouvelle partie---');
         console.log(`Creation de la grille de  ${this.nbCaract}x${this.nbEssais}`);
         console.log(`Il vous reste ${this.nbEssaisRestant} essais`);
-
+        console.log(`Le mot a trouver est: ${this.motAtrouver}`);
+        console.log(`DEFINITION : ${this.definition}`);
         this.annonce('Debut de la partie');
 
 
         this.#creationPlateau();
+
+        let allChars = this.#getCurrentLineChild();
+        allChars[this.nbCaract - this.nbCaractRestant].classList.add('repere');
       
         this.partieStart = true;
     }
@@ -90,8 +95,6 @@ class Wentzle{
 
     setNouvLettre(lettre){
         if(this.partieStart == false){return;};
-
-        
         if(this.nbEssaisRestant == 0){return};
 
         this.#setHelpButton(false);
@@ -99,6 +102,11 @@ class Wentzle{
         this.motEnCour += lettre.toUpperCase();
         let allChars = this.#getCurrentLineChild();
         allChars[this.nbCaract - this.nbCaractRestant].textContent = lettre.toUpperCase();
+        allChars[this.nbCaract - this.nbCaractRestant].classList.remove('repere');
+        if(allChars[this.nbCaract - this.nbCaractRestant + 1]){
+            allChars[this.nbCaract - this.nbCaractRestant + 1].classList.add('repere');
+
+        }
 
 
         this.nbCaractRestant--;
