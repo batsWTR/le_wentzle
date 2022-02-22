@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let helpButton = document.getElementById('aide');
     let selectEssai = document.getElementById('nbChances');
     let select = document.getElementById('nbLettres');
+    let settings = document.getElementById('settings');
 
     let tentatives = selectEssai.value;
     
@@ -18,7 +19,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let id = Math.floor(Math.random() * motsArgot[longueur].length);
     jeu.nouvellePartie(motsArgot[longueur][id][0].normalize("NFD").replace(/\p{Diacritic}/gu, ""),plateau, tentatives, motsArgot[longueur][id][1]);
     
- 
+    let def = document.createElement('p');
+    def.setAttribute('id','definition');
+    def.textContent = motsArgot[longueur][id][1].trim();
+    settings.appendChild(def);
     
     //--------------------------- listeners ----------------------
     
@@ -27,6 +31,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let longueur = parseInt(select.value);
         let id = Math.floor(Math.random() * motsArgot[longueur].length);
         jeu.nouvellePartie(motsArgot[longueur][id][0].normalize("NFD").replace(/\p{Diacritic}/gu, ""),plateau, tentatives, motsArgot[longueur][id][1]);
+
+        document.getElementById('definition').textContent = motsArgot[longueur][id][1].trim();
     });
     
 

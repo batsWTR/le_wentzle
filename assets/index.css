@@ -97,3 +97,7 @@ button:disabled{
     line-height: 80px;
     z-index: 1;
 }
+
+#definition{
+    text-align: center;
+}
