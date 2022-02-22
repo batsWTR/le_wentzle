@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let id = Math.floor(Math.random() * motsArgot[longueur].length);
     jeu.nouvellePartie(motsArgot[longueur][id][0].normalize("NFD").replace(/\p{Diacritic}/gu, ""),plateau, tentatives, motsArgot[longueur][id][1]);
     
-    plateau.focus();
-    plateau.click();
+ 
     
     //--------------------------- listeners ----------------------
     
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let longueur = parseInt(select.value);
         let id = Math.floor(Math.random() * motsArgot[longueur].length);
         jeu.nouvellePartie(motsArgot[longueur][id][0].normalize("NFD").replace(/\p{Diacritic}/gu, ""),plateau, tentatives, motsArgot[longueur][id][1]);
-        plateau.focus({preventScroll : false});
     });
     
 

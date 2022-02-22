@@ -148,7 +148,7 @@ class Wentzle{
         //smartphones a tester
         let keyboard = document.createElement('input');
         keyboard.setAttribute('type','text');
-        keyboard.setAttribute('hidden','');
+        //keyboard.setAttribute('hidden','');
         keyboard.focus();
         keyboard.click();
         document.body.appendChild(keyboard);
