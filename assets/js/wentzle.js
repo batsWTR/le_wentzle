@@ -156,6 +156,7 @@ class Wentzle{
         let k = document.getElementById('keyboard');
         k.focus();
         k.click();
+        k.click();
     }
 
     // fn interne retourne les span de ttes les lettres de la ligne en cours
