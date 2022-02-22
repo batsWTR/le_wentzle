@@ -145,18 +145,7 @@ class Wentzle{
             this.content.appendChild(ligne);
         }
 
-        //smartphones a tester
-        let keyboard = document.createElement('input');
-        keyboard.setAttribute('type','text');
-        keyboard.setAttribute('id','keyboard');
-        //keyboard.setAttribute('hidden','');
-        //keyboard.focus();
-        //keyboard.click();
-        document.body.appendChild(keyboard);
-        let k = document.getElementById('keyboard');
-        k.focus();
-        k.click();
-        k.click();
+     
     }
 
     // fn interne retourne les span de ttes les lettres de la ligne en cours
