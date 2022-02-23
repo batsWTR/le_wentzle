@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let helpButton = document.getElementById('aide');
     let selectEssai = document.getElementById('nbChances');
     let select = document.getElementById('nbLettres');
-    let settings = document.getElementById('settings');
+    let panel = document.getElementById('panel');
 
     let tentatives = selectEssai.value;
     
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     let def = document.createElement('p');
     def.setAttribute('id','definition');
     def.textContent = motsArgot[longueur][id][1].trim();
-    settings.appendChild(def);
+    panel.appendChild(def);
     
     //--------------------------- listeners ----------------------
     
@@ -49,7 +49,22 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 
 
+    let acc = document.getElementById("accordion");
+
+    acc.addEventListener("click", ()=> {
+
+        acc.classList.toggle("active");
+
+        var panel = acc.nextElementSibling;
+        if (panel.style.display === "block") {
+        panel.style.display = "none";
+        } else {
+        panel.style.display = "block";
+        }
+  });
+
 })
+
 
 
 

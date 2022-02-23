@@ -28,7 +28,7 @@ h1{
 }
 
 
-button{
+button[type ='button']{
     width: 80%;
     display: block;
     padding: 12px 0;
@@ -37,10 +37,37 @@ button{
     color: white;
 }
 
-button:disabled{
+button[type='button']:disabled{
     background: rgb(80, 95, 80);
 
 }
+
+#accordion {
+    background: linear-gradient(to right bottom, rgb(8, 85, 8), rgb(30, 158, 30));
+    color: #fff;
+    cursor: pointer;
+    padding: 18px;
+    margin: 10px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+
+  #panel {
+    padding: 0 18px;
+    width: 80%;
+    margin: 10px auto;
+    background: rgb(80, 95, 80);
+    display: none;
+    overflow: hidden;
+  }
+
+
+
+/* content */
 
 .content{
     border: 8px solid  rgb(2, 8, 26);
@@ -73,20 +100,20 @@ button:disabled{
 /* classes pour JS   */
 
 .green{
-    background-color: rgba(5, 133, 5,.6);
+    background-color: rgba(5, 133, 5,.7);
 }
 
 .red{
-    background-color: rgba(228, 11, 11,.6);
+    background-color: rgba(228, 11, 11,.7);
 }
 
 .orange{
-    background-color: rgba(235, 154, 5,.6);
+    background-color: rgba(235, 154, 5,.7);
 }
 
 .annonce{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 60%;
@@ -98,6 +125,3 @@ button:disabled{
     z-index: 1;
 }
 
-#definition{
-    text-align: center;
-}
