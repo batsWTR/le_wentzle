@@ -19,8 +19,7 @@ h1{
 @media screen and (min-width:900px){
     .jeu{width:60%;}
 }
-.settings{
-}
+
 
 .selects{
     display: flex;
@@ -66,7 +65,7 @@ button[type='button']:disabled{
   }
 
   #accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795'; 
     font-size: 13px;
     color: #fff;
     float: right;
